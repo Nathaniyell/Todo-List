@@ -36,11 +36,14 @@ button {
     font-size: 1.3rem;
     text-align: center;
     border-radius: 5px;
+    display: grid;
+    place-items: center;
 }
 
 button:hover {
     background-color: #000;
     color: #fff;
+    transition: ease-in 0.5s;
 }
 
 ul {
