@@ -33,7 +33,7 @@ const Child = (props) => {
       <div>
         <label>Please enter a Todo Below</label>
         <input type='text' onChange={handleChange} value={value} />
-        <p className={display ? 'error' : 'no-error'}>Please add a Todo</p>
+       {display && <p className='error'>Please add a Todo</p>}
         <button className='btn' onClick={display ? doNothing : wordChanger}>Add Todo</button></div>
 
     </div>
