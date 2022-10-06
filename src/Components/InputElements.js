@@ -10,7 +10,7 @@ const InputElements = (props) => {
 
   return (
     <ul>
-      {list ? <li>{props.title}<button onClick={removeHandler}><MdClose /></button></li> : null}
+      {list && <li>{props.title}<button onClick={removeHandler}><MdClose /></button></li>}
     </ul>
   )
 }

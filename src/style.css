@@ -15,9 +15,9 @@
 }
 
 .form {
-    width: 400px;
+    width: 500px;
     max-width: 90%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -104,7 +104,7 @@ input {
 }
 
 .btn {
-    width: 100px;
+    width: 100%;
     font-size: 1.18rem;
     padding: 7px 5px;
     background-color: #000;
@@ -115,9 +115,9 @@ input {
     background-color: #fff;
     color: #000;
 }
-
-.error {
-    display: block;
-    color: red;
-    font-style: italic;
+@media(min-width: 768px){
+    .btn{
+        width: auto;
+    }
 }
+
