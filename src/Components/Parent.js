@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Child from './Child'
 import InputElements from './InputElements'
 
-const words = [
-    {
-        id: 'a',
-        title: 'Go to Church'
-    },
-    {
-        id: 'b',
-        title: 'Go to School'
-    }
-]
+const words = []
 
 const Parent = () => {
-    const [word, setWord] = useState(words)
+    const [word, setWord] = useState(
+        function(){return JSON.parse(localStorage.getItem('notes'))|| words})
+
+    useEffect(()=>{
+        localStorage.setItem('notes', JSON.stringify(word))
+    }, [word])
 
     const changeWord = (newWord) => {
         setWord((prevWord) => {
