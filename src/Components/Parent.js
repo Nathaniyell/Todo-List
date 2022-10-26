@@ -6,7 +6,7 @@ const words = []
 
 const Parent = () => {
     const [word, setWord] = useState(
-        function(){return JSON.parse(localStorage.getItem('notes'))|| words})
+        ()=> JSON.parse(localStorage.getItem('notes'))|| words)
 
     useEffect(()=>{
         localStorage.setItem('notes', JSON.stringify(word))
@@ -17,6 +17,11 @@ const Parent = () => {
             return [newWord, ...prevWord]
         })
     }
+
+    function deleteNote(){
+        // setWord(oldWords => oldWords.filter(eachWord => word.id !==))
+    }
+
     return (
         <div className='form'>
             <Child newProps={changeWord} />
@@ -25,6 +30,7 @@ const Parent = () => {
                     <InputElements
                         key={newWord.id}
                         title={newWord.title}
+                        deleteNote={deleteNote}
                     />)
             })}
         </div>
