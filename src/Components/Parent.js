@@ -6,29 +6,36 @@ const words = []
 
 const Parent = () => {
     const [word, setWord] = useState(
-        ()=> JSON.parse(localStorage.getItem('notes'))|| words)
+        () => JSON.parse(localStorage.getItem('notes')) || words)
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(word))
     }, [word])
 
-    const changeWord = (newWord) => {
+    const NewTodo = (newWord) => {
         setWord((prevWord) => {
             return [newWord, ...prevWord]
         })
     }
 
-    function deleteNote(){
-        // setWord(oldWords => oldWords.filter(eachWord => word.id !==))
+    function deleteNote(todoId) {
+        setWord(oldTodo => oldTodo.filter(eachTodo => eachTodo.id !== todoId))
+        /*We are receiving a todoId from the button component, we filter 
+       the word array and check if the todoId passed matches any of the id
+       in the array if it doesn't we return an array that exempts that todoId and its contents
+       thereby deleting it 
+        */
+        // console.log('delete note', todoId)
     }
 
     return (
         <div className='form'>
-            <Child newProps={changeWord} />
+            <Child newProps={NewTodo} />
             {word.map((newWord) => {
                 return (
                     <InputElements
                         key={newWord.id}
+                        id={newWord.id}
                         title={newWord.title}
                         deleteNote={deleteNote}
                     />)

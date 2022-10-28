@@ -1,16 +1,12 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { MdClose } from 'react-icons/md'
 
 
 const InputElements = (props) => {
-  const [list, setList] = useState(true)
-  function removeHandler() {
-    setList(false)
-    }
 
   return (
     <ul>
-      {list && <li>{props.title}<button onClick={removeHandler}><MdClose /></button></li>}
+      <li>{props.title}<button onClick={(id) => props.deleteNote(props.id)}><MdClose /></button></li>
     </ul>
   )
 }
